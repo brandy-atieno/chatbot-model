@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from tensorflow.keras.models import load_model
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -7,6 +8,8 @@ from sklearn.preprocessing import LabelEncoder
 import json
 
 app = Flask(__name__)
+CORS(app)
+
 
 # Load the model
 model = load_model('mental_model.h5')
